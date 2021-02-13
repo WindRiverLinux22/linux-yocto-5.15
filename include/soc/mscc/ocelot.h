@@ -731,6 +731,7 @@ struct ocelot_policer {
 bool ocelot_can_inject(struct ocelot *ocelot, int grp);
 void ocelot_port_inject_frame(struct ocelot *ocelot, int port, int grp,
 			      u32 rew_op, struct sk_buff *skb);
+int ocelot_xtr_poll_frame(struct ocelot *ocelot, int grp, struct sk_buff **skb);
 
 #else
 
@@ -743,6 +744,12 @@ static inline void ocelot_port_inject_frame(struct ocelot *ocelot, int port,
 					    int grp, u32 rew_op,
 					    struct sk_buff *skb)
 {
+}
+
+static inline int ocelot_xtr_poll_frame(struct ocelot *ocelot, int grp,
+					struct sk_buff **skb)
+{
+	return -EIO;
 }
 
 #endif
