@@ -733,39 +733,12 @@ struct ocelot_policer {
 #define ocelot_target_write(ocelot, target, val, reg) \
 	__ocelot_target_write_ix(ocelot, target, val, reg, 0)
 
-#if IS_ENABLED(CONFIG_MSCC_OCELOT_SWITCH_LIB)
-
 /* Packet I/O */
 bool ocelot_can_inject(struct ocelot *ocelot, int grp);
 void ocelot_port_inject_frame(struct ocelot *ocelot, int port, int grp,
 			      u32 rew_op, struct sk_buff *skb);
 int ocelot_xtr_poll_frame(struct ocelot *ocelot, int grp, struct sk_buff **skb);
 void ocelot_drain_cpu_queue(struct ocelot *ocelot, int grp);
-
-#else
-
-static inline bool ocelot_can_inject(struct ocelot *ocelot, int grp)
-{
-	return false;
-}
-
-static inline void ocelot_port_inject_frame(struct ocelot *ocelot, int port,
-					    int grp, u32 rew_op,
-					    struct sk_buff *skb)
-{
-}
-
-static inline int ocelot_xtr_poll_frame(struct ocelot *ocelot, int grp,
-					struct sk_buff **skb)
-{
-	return -EIO;
-}
-
-static inline void ocelot_drain_cpu_queue(struct ocelot *ocelot, int grp)
-{
-}
-
-#endif
 
 /* I/O */
 u32 ocelot_port_readl(struct ocelot_port *port, u32 reg);
