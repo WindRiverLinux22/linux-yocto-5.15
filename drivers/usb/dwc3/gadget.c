@@ -3025,9 +3025,6 @@ static bool dwc3_gadget_endpoint_trbs_complete(struct dwc3_ep *dep,
 	bool			no_started_trb = true;
 	bool			stop = false;
 
-	if (!dep->endpoint.desc)
-		return no_started_trb;
-
 	dwc3_gadget_ep_cleanup_completed_requests(dep, event, status);
 
 	if (dep->stream_capable && !list_empty(&dep->started_list))
