@@ -25,6 +25,7 @@
 #include "otx2_txrx.h"
 #include "otx2_devlink.h"
 #include <rvu_trace.h>
+#include "qos.h"
 
 /* PCI device IDs */
 #define PCI_DEVID_OCTEONTX2_RVU_PF              0xA063
