@@ -472,7 +472,6 @@ config ADI
 	  driver include crash and makedumpfile.
 
 source "drivers/char/imx_amp/Kconfig"
-endmenu
 
 config RANDOM_TRUST_CPU
 	bool "Initialize RNG using CPU RNG instructions"
