@@ -89,3 +89,4 @@ dtb-$(CONFIG_ARCH_S32) += s32g399a-emu.dtb
 dtb-$(CONFIG_ARCH_S32) += s32r45-emu.dtb
 dtb-$(CONFIG_ARCH_S32) += s32r45-evb.dtb
 dtb-$(CONFIG_ARCH_S32) += s32r45-simulator.dtb
+dtb-$(CONFIG_ARCH_S32) += s32g399a-cvc-fl.dtb
